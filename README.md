@@ -28,7 +28,43 @@ Si ingresamos al archivo creado cuando ejecutamos rake db:migrate , veremos que 
 
 ![image](https://github.com/Aztirma/PC3_CC3S2/assets/92898224/01da58da-917f-47d6-a30e-abc03c413d34)
 
-Pregunta: ¿Qué datos de semilla se insertaron y dónde se especificaron? 
+Luego , ejecutamos el comando rake db:seed para poder inssertar los datos que se encuentra en el archivo seeds.rb 
+
+Si entramos en la consola y revisamos la tabla Movie , veremos que los datos han sido ingresado correctamente 
+
+![image](https://github.com/Aztirma/PC3_CC3S2/assets/92898224/589c9c0c-abe3-455b-ad3b-527e9529af5d)
+
+* Pregunta: ¿Qué datos de semilla se insertaron y dónde se especificaron? 
+
+Estos datos estan especificados en el archivo seeds.rb , donde se encuentran los datos de peliculas 
+
+Ya que tenemos todos los datos subidos a la tabla veamos como se ve con el servidor funcionando .
+
+![image](https://github.com/Aztirma/PC3_CC3S2/assets/92898224/68329207-509b-4a4a-b5eb-553f5a0e3801) 
+
+
+![image](https://github.com/Aztirma/PC3_CC3S2/assets/92898224/b5bbe5b6-ba96-4393-a3b5-b467cbdf4973)
+
+## Parte 1 : filtrar la lista de peliculas por clasificacion 
+
+Haremos modificaciones a las vistas dentro del proyecto para que tengamos una seleccion de peliculas , clasificandolas por su calificacion 
+
+
+Incluimos los botones y la funcionalidad en las vistas del proyecto 
+
+![image](https://github.com/Aztirma/PC3_CC3S2/assets/92898224/945da641-258e-465e-af0d-de1a5c6556b0)
+
+como vemos , en las vistas aparecen 2 variables que no hemos visto anteriormente , estas serian @all_rating y ratings_to_show , para darle la funcionalidad completa tendremos que definirlas en los controladores 
+
+
+![image](https://github.com/Aztirma/PC3_CC3S2/assets/92898224/0d0cd985-034c-4ad5-b844-246c4a74cc05)
+
+Ya tenemos un pequeño avance , veamoslo ejecutando en un servidor local 
+
+![image](https://github.com/Aztirma/PC3_CC3S2/assets/92898224/8a464438-3eb5-462c-b719-0009d02488ca)
+
+Vemos que nos aparecen todas las casillas marcadas , y nos muestran todas las peliculas ,ahora si desmarcamos algunua de estas casillas y le damos a refresh , veremos que aun no nos muestra las peliculas por su clasificacion , tenemos que mover algunas cosillas 
+
 
 
 
