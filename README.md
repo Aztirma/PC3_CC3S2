@@ -86,6 +86,9 @@ Crearemos un archivo custom donde pondremos las preferencias que queramos
 
 ![image](https://github.com/Aztirma/PC3_CC3S2/assets/92898224/3937b3a0-9dee-469f-9d25-059318f42380)
 
+veamos como quedaron los cambios
+
+![image](https://github.com/Aztirma/PC3_CC3S2/assets/92898224/870e7f94-eb44-4aea-89b6-7f64b3b8d117)
 
 
 # Parte 2: ordenar la lista de películas 
