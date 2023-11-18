@@ -6,9 +6,26 @@ class MoviesController < ApplicationController
     # will render app/views/movies/show.<extension> by default
   end
 
+
   def index
-    @movies = Movie.all
+    #toma valores unicos de rating
+    @all_rating = Movie.distinct.pluck(:rating)
+    #tendra los valores que seleccionemos en la pagina , y ya que podemos
+    #desmarcar todos los valores , tambien puede ser vacio
+    @ratings_to_show = params[:ratings]&.keys || []
+    #si no hay valores seleccionados , entonces mostrara una tabla vacia
+    if @ratings_to_show.empty?
+      @movies = []
+    #si hay valores seleccionados , entonces mostrara las peliculas
+    #que tengan la calificaciones marcadas
+    else
+      @movies = Movie.where(rating: @ratings_to_show)
+    end
   end
+
+
+
+
 
   def new
     # default: render 'new' template
