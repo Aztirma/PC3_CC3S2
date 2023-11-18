@@ -54,6 +54,11 @@ Incluimos los botones y la funcionalidad en las vistas del proyecto
 
 ![image](https://github.com/Aztirma/PC3_CC3S2/assets/92898224/945da641-258e-465e-af0d-de1a5c6556b0)
 
+* Pregunta :¿Por qué el controlador debe configurar un valor predeterminado para @ratings_to_show incluso si no se marca nada?
+
+//////   
+
+
 como vemos , en las vistas aparecen 2 variables que no hemos visto anteriormente , estas serian @all_rating y ratings_to_show , para darle la funcionalidad completa tendremos que definirlas en los controladores 
 
 
@@ -64,6 +69,27 @@ Ya tenemos un pequeño avance , veamoslo ejecutando en un servidor local
 ![image](https://github.com/Aztirma/PC3_CC3S2/assets/92898224/8a464438-3eb5-462c-b719-0009d02488ca)
 
 Vemos que nos aparecen todas las casillas marcadas , y nos muestran todas las peliculas ,ahora si desmarcamos algunua de estas casillas y le damos a refresh , veremos que aun no nos muestra las peliculas por su clasificacion , tenemos que mover algunas cosillas 
+
+Ahora , tenemos que ingresar la logica detras de estos botones , ya que como sabe el servidor que mostrar que no , dentro del controlador llamaremos a los valores que tengan la variable @ratings_to_show  , luego de esto solo mostraremos las peliculas las cuales tengan dichas clasificaciones , asi :  
+
+![image](https://github.com/Aztirma/PC3_CC3S2/assets/92898224/271b334d-ab3c-4811-a3d1-38f7d31fd065)
+
+
+ya configurado esto veamos la pagina :
+
+![image](https://github.com/Aztirma/PC3_CC3S2/assets/92898224/b8d49c72-52c9-4b64-9eee-a8828ef64dc7)
+
+Si quisieramos modificar alguno de los colores de fondo o colores de los botones , tendremos que nmodifiar el css de la aplicacion  
+Crearemos un archivo custom donde pondremos las preferencias que queramos 
+
+![image](https://github.com/Aztirma/PC3_CC3S2/assets/92898224/a567e60e-a828-4097-adb2-84c7f0449029)
+
+![image](https://github.com/Aztirma/PC3_CC3S2/assets/92898224/3937b3a0-9dee-469f-9d25-059318f42380)
+
+
+
+# Parte 2: ordenar la lista de películas 
+
 
 
 
