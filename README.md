@@ -423,3 +423,6 @@ La siguiente imagen representa la tabla ordenada ademas de estar cumpliendo con 
 Al momento de realizar Rrfresh, estos datos no se pierden, siguen apareciendo los ratings seleccionados. En este punto, es decir tenemos las columnas de clasificación funcionando ya que nuestra columna no "olvida" los valores de las casillas de verificación que estaban marcadas.
 
 ![Alt text](Images/image-1c.png)
+
+
+cambio
