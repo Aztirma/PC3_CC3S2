@@ -10,7 +10,7 @@ Primero, hemos clonado el repositorio RottenPotatoes desde GitHub a nuestro dire
 ```bash
 git clone https://github.com/saasbook/rottenpotatoes-rails-intro
 ```
-![Alt text] (Images/image.png)
+![Alt text](Images/image.png)
 
 **Paso 2: Configurar Nuestra Rama en GitHub**
 
