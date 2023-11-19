@@ -146,7 +146,7 @@ git push heroku master
 Es posible que hayamos visto una advertencia la primera vez. Respondimos "sí" para continuar.
 
 
-## Parte 1: Integración de Casillas de Verificación
+## Parte 1: Filtrar lista de peliculas por clasificación
 
 **Paso 1: Actualización del Formulario en `index.html.erb`**
 
@@ -175,7 +175,7 @@ En la ejecución local de la aplicación, se ha identificado un error relacionad
 
 Para abordar este problema, se propone la implementación de un método de clase en el modelo Movie que devuelva la colección de todas las clasificaciones posibles. Este método se llama all_ratings y se encuentra en el archivo `movie.rb`
 
-![Alt text](image-23.png)
+![Alt text](Images/image-23.png)
 
 
 **Paso 2: Configuración del Controlador**
@@ -266,8 +266,6 @@ Escribiremos params[:ratings]  y presionamos Enter, esto mostrará todos los par
 
 Esto indica que en la URL de la solicitud actual, las clasificaciones G y PG-13 han sido seleccionadas. Este hash asocia cada clasificación seleccionada con un valor ("1" en este caso). Esta información coincide con las casillas que seleccionamos al momento de iniciar nuestro servidor en nuestro local:host.
 
-Dentro de la salida de params, buscamos la sección relacionada con las casillas de verificación. 
-
 #### 2. **Clasificaciones Predeterminadas:**
    - Cuando un usuario visita la página por primera vez, puedes preseleccionar todas las clasificaciones por defecto. Esto se puede hacer en el controlador al establecer un valor predeterminado para `@ratings_to_show` si no se proporciona en los parámetros.
 
@@ -297,4 +295,131 @@ Hemos incluido algunos estilos de Bootstrap predeterminados un ejemplo de los es
  
 Las clases `form-check` y `form-check-inline` de Bootstrap se utilizan para dar estilo y alinear las casillas de verificación en línea dentro de un contenedor `div`. Además, las clases `form-check-label` y `form-check-input` se aplican al `label` y al `input`, respectivamente, para estilizarlos según las convenciones de Bootstrap. En este caso, la aplicación de estilos de Bootstrap tiene como objetivo mejorar la apariencia y la usabilidad del formulario.  
 
+### Hacer Pull Request
+
+Ahora que hemos realizado las modificaciones necesarias y hemos confirmado que nuestro código funciona como se espera, es el momento de hacer un Pull Request (PR) para integrar nuestros cambios en la rama principal del repositorio. Sigamos estos pasos:
+
+1. *Iniciar el Pull Request en GitHub:*  
+Nos dirigimos al repositorio en GitHub, hacemos click en el botón "X branches" cerca de la parte superior de la página para ver todas las ramas, finalmente buscamos y seleccionamos nuestra rama en la lista.
+
+    ![Alt text](Images/imagea.png)
+
+2. *Crear un Nuevo Pull Request:*  
+Una vez en la página de nuestra rama, buscamos y hacemos clic en el botón "New Pull Request".
+
+    ![Alt text](Images/image-3a.png)
+
+3. *Configurar el Pull Request:*
+Asegurémonos de que la rama base sea `main` y la rama de comparación sea la nuestra, luego agregamos un título descriptivo y proporcionamos una descripción detallada de los cambios que hemos realizado.
+
+    ![Alt text](Images/image-2a.png)
+
+4. *Esperar Revisiones:*
+   - Esperamos a que nuestros compañeros de equipo revisen nuestro PR. En este caso podemos observar que nuestro compañero vio mi PR y comento con un emoji.
+
+   ![Alt text](Images/imageb.png)
+
+5. *Fusionar el Pull Request:*
+   - Una vez que nuestros compañeros de equipo han revisado y aprobado nuestros cambios, y todos los problemas han sido abordados, podemos fusionar el PR.
+   - Hacemos clic en el botón "Merge Pull Request" en la página de nuestro PR.
+   - Aqui la evidencia que si hicimos Merged.
+
+   ![Alt text](Images/imageb-1.png)
+
+
 ## Parte 2: Ordenar lista de peliculas
+
+
+### Configurar Enlaces Clicables
+
+Nos pide convertir los títulos de las columnas "Movie Title" y "Release Date " en enlaces en los que se pueda hacer clic.Es por ello que en el archivo de la vista `index.html.erb`, buscamos  la sección donde se definen las columnas "Movie Title" y "Release Date". 
+
+![Alt text](Images/image-5a.png)
+
+En esa sección, reemplazamos el siguiente código:
+
+ html
+<tr>
+  <th class="<%=@title_header_class%>" ><%= link_to "Movie Title", movies_path(sort: 'title', direction: sort_direction), id: 'title_header' %></th>
+  <th>Rating</th>
+  <th class="<%=@release_date_header_class%>" ><%= link_to "Release Date", movies_path(sort: 'release_date', direction: sort_direction), id: 'release_date_header' %></th>
+  <th>More Info</th>
+</tr>
+ 
+
+- Se ha añadido el método `link_to` para crear enlaces clicables alrededor de los títulos de las columnas "Movie Title" y "Release Date".
+- Se utiliza `movies_path` como la ruta a la que apuntan los enlaces, indicando que se debe ordenar por el atributo correspondiente (ya sea 'title' o 'release_date').
+- La dirección de ordenación se determina mediante el parámetro `direction` y se gestiona dinámicamente según la columna seleccionada.
+- Se ha añadido un identificador (`id`) a cada enlace para referencia en el código JavaScript o CSS si es necesario.
+
+Estos cambios permiten a los usuarios ordenar la lista de películas al hacer clic en los títulos de las columnas mencionadas, mejorando la interactividad y la experiencia del usuario al explorar la aplicación RottenPotatoes.
+
+
+![Alt text](Images/image-4a.png)
+
+Para abordar la funcionalidad de ordenación en la página principal que muestra la lista de películas, realizamos modificaciones en el método index del controlador `movies_controller.rb.` La lógica se implementa para gestionar las solicitudes de ordenación basadas en las columnas "Movie Title" y "Release Date".
+
+![Alt text](Images/image-8a.png)
+
+
+1. sort_column: Determina la columna por la cual ordenar las películas. Se utiliza en la acción `index` para personalizar el orden de las películas.
+
+2. toggle_direction: Alterna entre las direcciones de orden ascendente y descendente. Se utiliza en la acción `index` para cambiar la dirección de ordenamiento.
+
+3. hash_ratings: Convierte las calificaciones seleccionadas en un hash para facilitar su manipulación. Se utiliza en la acción `index` para obtener las calificaciones seleccionadas.
+
+4. set_style_header: Establece las clases de estilo para resaltar el encabezado de la columna actualmente ordenada. Se utiliza en la acción `index` para aplicar estilos visuales.
+
+Estos métodos se integran en la acción `index` para proporcionar funcionalidades adicionales de ordenamiento y estilo en la lista de películas.
+
+Se inicia nuevamente la aplicacion localmente y se puede observar que si hacemos click en la columna Movie Title este se pone de color amarillo ademas que las peliculas aparecen en orden alfabetico por titulo: 
+
+![Alt text](Images/image-6a.png)
+
+Y al hacer clic en el encabezado de la columna "Release date" se debería volver a mostrar la lista de películas con las primeras películas estrenadas primero: 
+![Alt text](Images/image-7a.png)
+
+### Agregar parámetros a rutas RESTful existentes
+
+En el proceso de desarrollo de RottenPotatoes, utilizamos la ruta auxiliar movies_path de las "rutas basadas en recursos" proporcionadas por Rails para generar el URI correcto para la página de índices de películas. Una característica interesante que descubrimos es que al pasar un hash de parámetros adicionales a esta ruta, Rails analiza esos parámetros y los hace disponibles en el hash params[].
+
+Para comprender mejor cómo se generan las rutas y cómo afectan los parámetros en Rails, realizamos experimentos en la consola de Rails. Aquí hay un ejemplo de cómo llevamos a cabo estas pruebas:
+
+1. Ruta para la Página de Índices de Películas:
+   ruby
+   app.movies_path
+   
+    Esto debería generar la URL para la página de índices de películas.
+
+    ![Alt text](Images/image-9a.png)
+
+1. Ruta para una pelicula con su id:
+   ruby
+   app.movies_path.(Movie.first)
+   
+
+    ![Alt text](Images/image-10a.png)
+
+1. Ruta para calificacion por rating:
+   ruby
+   app.movies_path.(Movie.first)
+   
+
+    ![Alt text](Images/image-11a.png)
+
+2. Ruta con Parámetros Adicionales:
+   ruby
+   app.movies_path(rating: 'PG', genre: 'Comedy')
+   
+   ![Alt text](Images/image-12a.png)
+
+   Al pasar parámetros adicionales, se puede observar cómo afectan a la URL generada. En este ejemplo, se utilizan los parámetros `rating` y `genre`. Este ultimo es un parametro adicional, pero a pesar de ello vemos que de todos maneras se genera la ruta .
+
+### Mostrar las cosas en el orden correcto
+
+La siguiente imagen representa la tabla ordenada ademas de estar cumpliendo con el rating seleccionado
+![Alt text](Images/imagec.png)
+
+Al momento de realizar Rrfresh, estos datos no se pierden, siguen apareciendo los ratings seleccionados. En este punto, es decir tenemos las columnas de clasificación funcionando ya que nuestra columna no "olvida" los valores de las casillas de verificación que estaban marcadas.
+
+![Alt text](Images/image-1c.png)
