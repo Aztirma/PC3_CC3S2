@@ -7,8 +7,12 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
-  end
+    @all_ratings = Movie.all_ratings
+    ratings_form = params[:ratings] || {}
+    debugger
+    @ratings_to_show = ratings_form.keys
+    @movies = Movie.with_ratings(@ratings_to_show)
+  end  
 
   def new
     # default: render 'new' template
