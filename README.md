@@ -324,7 +324,7 @@ Asegurémonos de que la rama base sea `main` y la rama de comparación sea la nu
    - Hacemos clic en el botón "Merge Pull Request" en la página de nuestro PR.
    - Aqui la evidencia que si hicimos Merged.
 
-   ![Alt text](Images/image-1b.png)
+   ![Alt text](Images/imageb-1.png)
 
 
 ## Parte 2: Ordenar lista de peliculas
