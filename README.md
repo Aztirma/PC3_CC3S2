@@ -423,35 +423,3 @@ La siguiente imagen representa la tabla ordenada ademas de estar cumpliendo con 
 Al momento de realizar Rrfresh, estos datos no se pierden, siguen apareciendo los ratings seleccionados. En este punto, es decir tenemos las columnas de clasificación funcionando ya que nuestra columna no "olvida" los valores de las casillas de verificación que estaban marcadas.
 
 ![Alt text](Images/image-1c.png)
-
-
-### Hacer Pull Request
-
-Realizamos nuevamente un Pull Request (PR) para integrar nuestros cambios en la rama principal del repositorio. Sigamos estos pasos:
-
-1. *Iniciar el Pull Request en GitHub:*  
-Nos dirigimos al repositorio en GitHub, hacemos click en el botón "X branches" cerca de la parte superior de la página para ver todas las ramas, finalmente buscamos y seleccionamos nuestra rama en la lista.
-
-    ![Alt text](Images/imagea.png)
-
-2. *Crear un Nuevo Pull Request:*  
-Una vez en la página de nuestra rama, buscamos y hacemos clic en el botón "New Pull Request".
-
-    ![Alt text](Images/image-3a.png)
-
-3. *Configurar el Pull Request:*
-Asegurémonos de que la rama base sea `main` y la rama de comparación sea la nuestra, luego agregamos un título descriptivo y proporcionamos una descripción detallada de los cambios que hemos realizado.
-
-    ![Alt text](Images/image-2a.png)
-
-4. *Esperar Revisiones:*
-   - Esperamos a que nuestros compañeros de equipo revisen nuestro PR. En este caso podemos observar que nuestro compañero vio mi PR y comento con un emoji.
-
-   ![Alt text](Images/imageb.png)
-
-5. *Fusionar el Pull Request:*
-   - Una vez que nuestros compañeros de equipo han revisado y aprobado nuestros cambios, y todos los problemas han sido abordados, podemos fusionar el PR.
-   - Hacemos clic en el botón "Merge Pull Request" en la página de nuestro PR.
-   - Aqui la evidencia que si hicimos Merged.
-
-   ![Alt text](Images/imageb-1.png)
